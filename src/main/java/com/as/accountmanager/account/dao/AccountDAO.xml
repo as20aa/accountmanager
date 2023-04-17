@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.as.accountmanager.account.dao.AccountDAO">
+    <resultMap id="Account" type="com.as.accountmanager.account.dao.vo.AccountVO"></resultMap>
+
+    <select id="search" resultMap="Account">
+        SELECT * FROM ACCOUNT
+    </select>
+
+    <insert id="insert" parameterMap="Account">
+        insert into account (ID, NAME, PHONE, MAIL, IND_SEX, IND_STATUS) VALUES (#{id},
+        #{name}, #{phone}, #{mail}, #{indSex}, #{indStatus})
+    </insert>
+
+    <delete id="deleteById">
+        delete from account where id=#{id}
+    </delete>
+
+    <update id="modifyById" parameterMap="Account">
+        UPDATE ACCOUNT
+        <set>
+            <if test="id!=null and id!=''">
+                id=#{accountVO.id}
+            </if>
+            <if test="name!=null and name!=''">
+                name=#{accountVO.name}
+            </if>
+            <if test="phone!=null and phone!=''">
+                phone=#{accountVO.phone}
+            </if>
+            <if test="mail!=null and mail!=''">
+                mail=#{accountVO.mail}
+            </if>
+            <if test="indSex!=null and indSex!=''">
+                indSex=#{accountVO.indSex}
+            </if>
+            <if test="indStatus!=null and indStatus!=''">
+                indStatus=#{accountVO.indStatus}
+            </if>
+        </set>
+        WHERE ID=#{id}
+    </update>
+</mapper>

@@ -6,15 +6,15 @@ import java.io.Serializable;
  * AccountVO
  * @date 20230416
  * @author as
- * @version 1
+ * @version 1.1
  */
 public class AccountVO implements Serializable {
     private String ID;
     private String Name;
     private String Phone;
-    private String Sex;
+    private String IndSex;
     private String Mail;
-
+    private String IndStatus;
 
     public String getID() {
         return ID;
@@ -40,12 +40,12 @@ public class AccountVO implements Serializable {
         Phone = phone;
     }
 
-    public String getSex() {
-        return Sex;
+    public String getIndSex() {
+        return IndSex;
     }
 
-    public void setSex(String sex) {
-        Sex = sex;
+    public void setIndSex(String indSex) {
+        IndSex = indSex;
     }
 
     public String getMail() {
@@ -54,5 +54,13 @@ public class AccountVO implements Serializable {
 
     public void setMail(String mail) {
         Mail = mail;
+    }
+
+    public String getIndStatus() {
+        return IndStatus;
+    }
+
+    public void setIndStatus(String indStatus) {
+        IndStatus = indStatus;
     }
 }
