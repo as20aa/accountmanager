@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /***
  * AccountManager
@@ -15,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author as
  * @version 1
  */
-@Controller("/account")
+@RestController("/account")
 public class AccountManager {
     @Autowired
     private AccountLogic accountLogic;
 
     @RequestMapping(method= RequestMethod.POST, value="/addUser")
     public void addUser(@RequestParam AccountVO accountVO) {
-
+        accountLogic.insert(accountVO);
     }
 }
