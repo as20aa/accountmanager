@@ -2,9 +2,9 @@ package com.as.accountmanager.account.service;
 
 import com.as.accountmanager.account.dao.vo.AccountVO;
 import com.as.accountmanager.account.logic.AccountLogic;
+
+import com.as.accountmanager.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +23,7 @@ public class AccountManager {
 
     @RequestMapping(method= RequestMethod.POST, value="/addUser")
     public void addUser(@RequestParam AccountVO accountVO) {
+        Log.info(this.getClass(), "yes");
         accountLogic.insert(accountVO);
     }
 }
