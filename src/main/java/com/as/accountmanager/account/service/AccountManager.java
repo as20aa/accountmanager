@@ -5,10 +5,8 @@ import com.as.accountmanager.account.logic.AccountLogic;
 
 import com.as.accountmanager.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 /***
  * AccountManager
@@ -16,13 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @author as
  * @version 1
  */
-@RestController("/account")
+@RestController
+@RequestMapping("/account")
 public class AccountManager {
     @Autowired
     private AccountLogic accountLogic;
 
-    @RequestMapping(method= RequestMethod.POST, value="/addUser")
-    public void addUser(@RequestParam AccountVO accountVO) {
+    @RequestMapping(method=RequestMethod.POST, value="/addUser")
+    public void addUser(@RequestBody AccountVO accountVO) {
         Log.info(this.getClass(), "yes");
         accountLogic.insert(accountVO);
     }
