@@ -41,3 +41,6 @@ You should modify the idea to make it better to work with
 msyql
 # application.properities
 You need to specify the database driver: com.mysql.cj.jdbc.Driver
+# controller parameter
+you must use the small camel case to set the vo class and parameter in postman, springboot can automatic convert json to
+vo if you do this.

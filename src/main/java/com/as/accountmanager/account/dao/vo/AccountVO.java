@@ -7,60 +7,74 @@ import java.io.Serializable;
  * @date 20230416
  * @author as
  * @version 1.1
+ * @Description you must use the lower camel case name the properties
+ * to make it able to convert from json to vo class automatic
  */
 public class AccountVO implements Serializable {
-    private String ID;
-    private String Name;
-    private String Phone;
-    private String IndSex;
-    private String Mail;
-    private String IndStatus;
+    private String id;
+    private String name;
+    private String phone;
+    private String indSex;
+    private String mail;
+    private String indStatus;
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public String getIndSex() {
-        return IndSex;
+        return indSex;
     }
 
     public void setIndSex(String indSex) {
-        IndSex = indSex;
+        this.indSex = indSex;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public String getIndStatus() {
-        return IndStatus;
+        return indStatus;
     }
 
     public void setIndStatus(String indStatus) {
-        IndStatus = indStatus;
+        this.indStatus = indStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountVO{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", indSex='" + indSex + '\'' +
+                ", mail='" + mail + '\'' +
+                ", indStatus='" + indStatus + '\'' +
+                '}';
     }
 }

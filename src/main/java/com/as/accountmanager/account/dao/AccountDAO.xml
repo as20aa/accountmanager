@@ -9,8 +9,8 @@
         SELECT * FROM ACCOUNT
     </select>
 
-    <insert id="insert" parameterMap="Account">
-        insert into account (ID, NAME, PHONE, MAIL, IND_SEX, IND_STATUS) VALUES (#{id},
+    <insert id="insert">
+        insert into ACCOUNT (ID, NAME, PHONE, MAIL, IND_SEX, IND_STATUS) VALUES (#{id},
         #{name}, #{phone}, #{mail}, #{indSex}, #{indStatus})
     </insert>
 
@@ -18,7 +18,7 @@
         delete from account where id=#{id}
     </delete>
 
-    <update id="modifyById" parameterMap="Account">
+    <update id="modifyById">
         UPDATE ACCOUNT
         <set>
             <if test="id!=null and id!=''">
