@@ -15,4 +15,11 @@ public class Response {
     public static final ResponseVO Error(Object obj) {
         return new ResponseVO(MsgCode.Error, "", null);
     }
+
+    public static final ResponseVO Fail(){
+        return new ResponseVO(MsgCode.Fail, "", null);
+    }
+    public static final ResponseVO Fail(Object obj) {
+        return new ResponseVO(MsgCode.Fail, "", obj.toString());
+    }
 }

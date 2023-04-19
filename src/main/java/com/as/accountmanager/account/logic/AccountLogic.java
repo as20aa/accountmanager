@@ -29,4 +29,25 @@ public class AccountLogic {
     public List<AccountVO> search(AccountVO accountVO) {
         return accountDAO.search(accountVO);
     }
+
+    public boolean checkUser(AccountVO accountVO) {
+        AccountVO condition = new AccountVO();
+        condition.setName(accountVO.getName());
+        condition.setPhone(accountVO.getPhone());
+        List<AccountVO> accountVOList = accountDAO.search(condition);
+        if (accountVOList.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * addUser
+     * @param accountVO
+     * @description generate a user id and add user in database
+     */
+    public void addUser(AccountVO accountVO) {
+
+    }
 }

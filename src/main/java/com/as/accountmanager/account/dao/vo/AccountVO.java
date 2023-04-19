@@ -13,6 +13,8 @@ import java.io.Serializable;
 public class AccountVO implements Serializable {
     private String id;
     private String name;
+
+    private String passWord;
     private String phone;
     private String indSex;
     private String mail;
@@ -40,6 +42,14 @@ public class AccountVO implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public String getPassWord() {
+        return this.passWord;
     }
 
     public String getIndSex() {
@@ -71,6 +81,7 @@ public class AccountVO implements Serializable {
         return "AccountVO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", password='" + passWord + '\'' +
                 ", phone='" + phone + '\'' +
                 ", indSex='" + indSex + '\'' +
                 ", mail='" + mail + '\'' +

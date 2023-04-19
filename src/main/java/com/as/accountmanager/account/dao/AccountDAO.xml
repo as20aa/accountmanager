@@ -10,8 +10,8 @@
     </select>
 
     <insert id="insert">
-        insert into ACCOUNT (ID, NAME, PHONE, MAIL, IND_SEX, IND_STATUS) VALUES (#{id},
-        #{name}, #{phone}, #{mail}, #{indSex}, #{indStatus})
+        insert into ACCOUNT (ID, NAME, PASSWORD, PHONE, MAIL, IND_SEX, IND_STATUS) VALUES (#{id},
+        #{name}, #{password}, #{phone}, #{mail}, #{indSex}, #{indStatus})
     </insert>
 
     <delete id="deleteById">
