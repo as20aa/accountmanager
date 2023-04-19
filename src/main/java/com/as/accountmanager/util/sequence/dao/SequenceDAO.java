@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SequenceDAO {
 
-    public int getValue(String name);
+    public int getValue(SequenceVO sequenceVO);
     /**
      * getSequence
      * @param name

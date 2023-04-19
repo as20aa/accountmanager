@@ -6,6 +6,7 @@ public class SequenceVO {
     private int initValue;
     private int step;
     private int maxValue;
+    private String indStatus;
 
     public String getName() {
         return name;
@@ -47,6 +48,14 @@ public class SequenceVO {
         this.maxValue = maxValue;
     }
 
+    public String getIndStatus() {
+        return indStatus;
+    }
+
+    public void setIndStatus(String indStatus) {
+        this.indStatus = indStatus;
+    }
+
     @Override
     public String toString() {
         return "SequenceVO{" +
@@ -55,6 +64,7 @@ public class SequenceVO {
                 ", initValue=" + initValue +
                 ", step=" + step +
                 ", maxValue=" + maxValue +
+                ", indStatus='" + indStatus + '\'' +
                 '}';
     }
 }
