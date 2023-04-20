@@ -14,7 +14,7 @@ public class AccountVO implements Serializable {
     private String id;
     private String name;
 
-    private String passWord;
+    private String password;
     private String phone;
     private String indSex;
     private String mail;
@@ -44,12 +44,12 @@ public class AccountVO implements Serializable {
         this.phone = phone;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPassWord() {
-        return this.passWord;
+    public String getPassword() {
+        return this.password;
     }
 
     public String getIndSex() {
@@ -81,7 +81,7 @@ public class AccountVO implements Serializable {
         return "AccountVO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", password='" + passWord + '\'' +
+                ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", indSex='" + indSex + '\'' +
                 ", mail='" + mail + '\'' +

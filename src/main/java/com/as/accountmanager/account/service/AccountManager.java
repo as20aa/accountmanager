@@ -10,6 +10,8 @@ import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /***
  * AccountManager
  * @date 20230417
@@ -52,20 +54,51 @@ public class AccountManager {
 
     /***
      * deleteById
-     * @param id
+     * @param accountVO
      * @return
      * @description delete a user by id
      */
     @RequestMapping(method=RequestMethod.POST, value="/deleteById")
-    public ResponseVO deleteById(@RequestBody String id) {
-        Log.info(this.getClass(), "deleteById, " + id);
+    public ResponseVO deleteById(@RequestBody AccountVO accountVO) {
+        Log.info(this.getClass(), "deleteById, " + accountVO.getId());
         try {
-            accountLogic.deleteById(id);
+            accountLogic.deleteById(accountVO.getId());
             return Response.Ok();
         } catch(Exception e) {
             Log.warn(this.getClass(), "failed to delete user");
             Log.warn(this.getClass(), e.toString());
             return Response.Fail();
         }
+    }
+
+    @RequestMapping(method=RequestMethod.POST, value="/modifyById")
+    public ResponseVO modifyById(@RequestBody AccountVO accountVO) {
+        Log.info(this.getClass(), accountVO);
+        try {
+            accountLogic.modifyById(accountVO);
+            return Response.Ok();
+        } catch (Exception e) {
+            Log.warn(this.getClass(), "modify user information failed!");
+            Log.warn(this.getClass(), e);
+            return Response.Fail();
+        }
+    }
+
+    @RequestMapping(method=RequestMethod.POST, value="/search")
+    public ResponseVO search(@RequestBody AccountVO accountVO) {
+        List<AccountVO> accountVOList= accountLogic.search(accountVO);
+        return Response.Ok(accountVOList);
+    }
+
+    @RequestMapping(method=RequestMethod.POST, value="/resetPassword")
+    public ResponseVO resetPassword(@RequestBody AccountVO accountVO) {
+        try {
+            accountLogic.resetPassword(accountVO.getId());
+            return Response.Ok();
+        } catch (Exception e){
+            Log.warn(this.getClass(), e.toString());
+            return Response.Fail();
+        }
+
     }
 }

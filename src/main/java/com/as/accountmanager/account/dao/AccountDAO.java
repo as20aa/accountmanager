@@ -16,6 +16,6 @@ import java.util.List;
 public interface AccountDAO {
     void insert(AccountVO newOne);
     void deleteById(String id);
-    void modifyById(String id, AccountVO accountVO);
+    void modifyById(AccountVO accountVO);
     List<AccountVO> search(AccountVO condition);
 }

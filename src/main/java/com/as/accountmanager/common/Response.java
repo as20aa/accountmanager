@@ -2,7 +2,7 @@ package com.as.accountmanager.common;
 
 public class Response {
     public static final ResponseVO Ok(Object obj) {
-        return new ResponseVO(MsgCode.Ok, "", null);
+        return new ResponseVO(MsgCode.Ok, "", obj.toString());
     }
     public static final ResponseVO Ok() {
         return new ResponseVO(MsgCode.Ok, "", null);
@@ -13,7 +13,7 @@ public class Response {
     }
 
     public static final ResponseVO Error(Object obj) {
-        return new ResponseVO(MsgCode.Error, "", null);
+        return new ResponseVO(MsgCode.Error, "", obj.toString());
     }
 
     public static final ResponseVO Fail(){

@@ -12,7 +12,7 @@ public class SequenceLogic {
     @Autowired
     private SequenceDAO sequenceDAO;
     @Transactional
-    public int getValue(String name) {
+    public int getValue(String name) throws Exception {
         SequenceVO sequenceVO = getSequence(name);
         Log.info(this.getClass(), sequenceVO);
         if (sequenceVO == null) {
@@ -29,7 +29,13 @@ public class SequenceLogic {
             addSequence(sequenceVO);
         }
         sequenceDAO.getValue(sequenceVO);
-        return sequenceVO.getCurrValue();
+        int value = sequenceVO.getCurrValue();
+        int maxValue = sequenceVO.getMaxValue();
+        if (value>=maxValue) {
+            throw new Exception("the curr_value is larger than limit: "+ maxValue);
+        }
+
+        return value;
     }
 
     @Transactional

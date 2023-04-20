@@ -19,16 +19,21 @@ public class SequenceService {
     private SequenceLogic sequenceLogic;
 
     @RequestMapping(method=RequestMethod.POST,  value="addSequence")
-    public ResponseVO addSequence(SequenceVO sequenceVO) {
+    public ResponseVO addSequence(@RequestBody SequenceVO sequenceVO) {
         sequenceLogic.addSequence(sequenceVO);
         return Response.Ok();
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/getValue")
     public ResponseVO getValue(@RequestBody SequenceVO sequenceVO) {
-        int value = sequenceLogic.getValue(sequenceVO.getName());
-        Log.info(getClass(), "the sequence is: " + String.valueOf(value));
-        return Response.Ok(String.valueOf(value));
+        try {
+            int value = sequenceLogic.getValue(sequenceVO.getName());
+            Log.info(getClass(), "the sequence is: " + String.valueOf(value));
+            return Response.Ok(String.valueOf(value));
+        } catch (Exception e){
+            Log.warn(this.getClass(), e.toString());
+            return Response.Fail();
+        }
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/resetSequence")

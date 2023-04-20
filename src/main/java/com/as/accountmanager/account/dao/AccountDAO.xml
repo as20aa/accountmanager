@@ -7,6 +7,26 @@
 
     <select id="search" resultMap="Account">
         SELECT * FROM ACCOUNT
+        <where>
+            <if test="id!='' and id!=null">
+                ID=#{id}
+            </if>
+            <if test="name!='' and name!=null">
+                and NAME=#{name}
+            </if>
+            <if test="phone!='' and phone!=null">
+                and PHONE=#{phone}
+            </if>
+            <if test="mail!='' and mail!=null">
+                and MAIL=#{mail}
+            </if>
+            <if test="indSex!='' and indSex!=null">
+                and IND_SEX=#{indSex}
+            </if>
+            <if test="indStatus!='' and indStatus!=null">
+                and IND_STATUS=#{indStatus}
+            </if>
+        </where>
     </select>
 
     <insert id="insert">
@@ -15,29 +35,29 @@
     </insert>
 
     <delete id="deleteById">
-        delete from account where id=#{id}
+        delete from ACCOUNT where id=#{id}
     </delete>
 
     <update id="modifyById">
         UPDATE ACCOUNT
         <set>
-            <if test="id!=null and id!=''">
-                id=#{accountVO.id}
-            </if>
             <if test="name!=null and name!=''">
-                name=#{accountVO.name}
+                NAME=#{name},
+            </if>
+            <if test="password!=null and password!=''">
+                PASSWORD=#{password},
             </if>
             <if test="phone!=null and phone!=''">
-                phone=#{accountVO.phone}
+                PHONE=#{phone},
             </if>
             <if test="mail!=null and mail!=''">
-                mail=#{accountVO.mail}
+                MAIL=#{mail},
             </if>
             <if test="indSex!=null and indSex!=''">
-                indSex=#{accountVO.indSex}
+                IND_SEX=#{indSex},
             </if>
             <if test="indStatus!=null and indStatus!=''">
-                indStatus=#{accountVO.indStatus}
+                IND_STATUS=#{indStatus},
             </if>
         </set>
         WHERE ID=#{id}
