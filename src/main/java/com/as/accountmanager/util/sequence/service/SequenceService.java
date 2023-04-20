@@ -18,6 +18,12 @@ public class SequenceService {
     @Autowired
     private SequenceLogic sequenceLogic;
 
+    @RequestMapping(method=RequestMethod.POST,  value="addSequence")
+    public ResponseVO addSequence(SequenceVO sequenceVO) {
+        sequenceLogic.addSequence(sequenceVO);
+        return Response.Ok();
+    }
+
     @RequestMapping(method=RequestMethod.POST, value="/getValue")
     public ResponseVO getValue(@RequestBody SequenceVO sequenceVO) {
         int value = sequenceLogic.getValue(sequenceVO.getName());
@@ -25,7 +31,7 @@ public class SequenceService {
         return Response.Ok(String.valueOf(value));
     }
 
-    @RequestMapping(method=RequestMethod.POST, value="/resetValue")
+    @RequestMapping(method=RequestMethod.POST, value="/resetSequence")
     public ResponseVO resetSequence(@RequestBody SequenceVO sequenceVO) {
         sequenceLogic.resetSequence(sequenceVO.getName());
         return Response.Ok();
