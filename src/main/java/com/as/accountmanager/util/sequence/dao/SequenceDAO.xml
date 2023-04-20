@@ -5,14 +5,14 @@
 <mapper namespace="com.as.accountmanager.util.sequence.dao.SequenceDAO">
     <resultMap id="Sequence" type="com.as.accountmanager.util.sequence.dao.vo.SequenceVO"></resultMap>
     <update id="getValue">
-        UPDATE TB_SEQUENCE set CURR_VALUE = CURR_VALUE + 1 WHERE NAME = #{name}
+        UPDATE TB_SEQUENCE set CURR_VALUE = CURR_VALUE + STEP WHERE NAME = #{name}
         <selectKey keyColumn="currValue" order="AFTER" resultType="int">
             select CURR_VALUE FROM TB_SEQUENCE WHERE NAME=#{name}
         </selectKey>
     </update>
 
     <select id="getSequence" resultMap="Sequence">
-        select * from TB_SEQUENCE WHERE NAME=#{name}
+        SELECT * from TB_SEQUENCE WHERE NAME=#{name}
     </select>
 
     <update id="resetSequence">

@@ -44,3 +44,5 @@ You need to specify the database driver: com.mysql.cj.jdbc.Driver
 # controller parameter
 you must use the small camel case to set the vo class and parameter in postman, springboot can automatic convert json to
 vo if you do this.
+# pojo in mybatis
+You should change the setting to make mybatis support pojo to xml

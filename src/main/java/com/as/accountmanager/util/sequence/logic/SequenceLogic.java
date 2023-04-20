@@ -14,6 +14,7 @@ public class SequenceLogic {
     @Transactional
     public int getValue(String name) {
         SequenceVO sequenceVO = getSequence(name);
+        Log.info(this.getClass(), sequenceVO);
         if (sequenceVO == null) {
             Log.info(this.getClass(), "sequence: " + name + " is not exist!");
             Log.info(this.getClass(), "add a new sequence");
